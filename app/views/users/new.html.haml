@@ -1,0 +1,26 @@
+%h1 Sign Up
+= form_for @user do |f| 
+
+  .form-group
+    = f.label :email
+    %br/
+    = f.text_field :email
+    %br/
+
+  .form-group
+    = f.label :password
+    %br/
+    = f.text_field :password
+    %br/
+    
+  .form-group
+    = f.label :password_confirmation
+    %br/
+    = f.text_field :password_confirmation
+    %br/
+
+  =f.submit "Sign up"
+
+
+
+
