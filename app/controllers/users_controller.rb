@@ -8,15 +8,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params[:user])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "You have successfully signed up"
+      redirect_to root_url, flash: "You have successfully signed up"
     else
-      render "new"
+      render :new
     end
 
     def show
       @user = current_user
     end
-    
+
   end
 
   private
