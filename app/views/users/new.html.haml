@@ -1,25 +1,22 @@
 %h1 Sign Up
 = form_for @user do |f| 
 
-  .form-group
-    = f.label :email
-    %br/
-    = f.text_field :email
-    %br/
+  = form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f|
 
-  .form-group
-    = f.label :password
-    %br/
-    = f.text_field :password
-    %br/
-    
-  .form-group
-    = f.label :password_confirmation
-    %br/
-    = f.text_field :password_confirmation
-    %br/
+    %p
+      Email: #{f.text_field :email}
+    %p
+      Password: #{f.password_field :password}
+    %p
+      Password Confirmation: #{f.password_field :password_confirmation}
+    = f.submit :Signup
+  
+  - if @user.errors.any?
+    %ul.Signup_Errors
+      - for message_error in @user.errors.full_messages
+        %li
+          * #{message_error}
 
-  =f.submit "Sign up"
 
 
 
