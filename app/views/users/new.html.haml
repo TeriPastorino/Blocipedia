@@ -1,22 +1,35 @@
-%h1 Sign Up
-= form_for @user do |f| 
+.row
+  .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+    .panel.panel-default
+      .panel-heading
+        %h1.panel-title
+          Please Sign Up
+      .panel-body
+        %form{:role => "form"}
+          .row
+            .col-xs-6.col-sm-6.col-md-6    
 
-  = form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f|
+        = form_for @user do |f| 
+          %input.form-control.input-sm{name: "first_name", placeholder: "Name", type: "text"}/
 
-    %p
-      Email: #{f.text_field :email}
-    %p
-      Password: #{f.password_field :password}
-    %p
-      Password Confirmation: #{f.password_field :password_confirmation}
-    = f.submit :Signup
-  
-  - if @user.errors.any?
-    %ul.Signup_Errors
-      - for message_error in @user.errors.full_messages
-        %li
-          * #{message_error}
+          .form-group
+          %input.form-control.input-sm{name:"email",placeholder: "Email Address", type: "email"}/
 
+          .form-group
+          %input.form-control.input-sm{name: "Password", placeholder: "Password", type: "password"}/
+
+          .form-group
+          %input.form-control.input-sm{name: "password_confirmation", placeholder: "Password Confirmation", type: "password_confirmation"}/
+
+          .form-group
+          %input.btn.btn-info.btn-block{:type => "submit", :value => "Register"}/
+
+
+        - if @user.errors.any?
+          %ul.Signup_Errors
+            - for message_error in @user.errors.full_messages
+              %li
+                * #{message_error}
 
 
 
