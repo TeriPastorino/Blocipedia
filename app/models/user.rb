@@ -7,6 +7,14 @@ class User < ActiveRecord::Base
   before_create {generate_token(:auth_token) }
   before_create { generate_token(:confirm_token) }
 
+
+  def email_activate
+    self.email_confirmed = true
+    self.confirm_token = nil
+    #protects against unwanted pw validation
+    save!(validate: false)
+  end
+
   #send token for password reset
   #add migration password_reset to users and reset_sent_at
   def send_password_reset
