@@ -10,10 +10,9 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Password Reset"
   end
 
-  #starting setup for registration confirmation
 
   def registration_confirmation(user)
     @user = user
-    mail(to: "#{user.name} <#{user.email}"), subject: "Registration Confirmation"
+    mail(to: "#{user.name} <#{user.email}>", subject: "Registration Confirmation")
   end
 end

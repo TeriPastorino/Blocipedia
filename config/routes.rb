@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       get :confirm_email
     end
   end
-
   resources :sessions
   resources :password_resets
 
