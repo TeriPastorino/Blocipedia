@@ -5,6 +5,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.password_reset.subject
   #
+  default from: "teri@blocwiki.com"
+
   def password_reset
     @user = user
     mail to: user.email, subject: "Password Reset"
