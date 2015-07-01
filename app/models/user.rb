@@ -17,11 +17,11 @@ class User < ActiveRecord::Base
   end
 
   #railscast
-  # def generate_token(column)
-  #   begin
-  #     self[column] = SecureRandom.urlsafe_base64
-  #   end while User.exists?(column: self[column])
-  # end
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column: self[column])
+  end
 
   private
   def confirmation_token
