@@ -1,35 +1,35 @@
-.row
-  .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
-    .panel.panel-default
-      .panel-heading
-        %h1.panel-title
-          Please Sign Up
-      .panel-body
-        %form{:role => "form"}
-          .row
-            .col-xs-6.col-sm-6.col-md-6    
+.container
+  %h4 Signup
 
-        = form_for @user do |f| 
-          %input.form-control.input-sm{name: "first_name", placeholder: "Name", type: "text"}/
+.container
+  .col-md-6.col-md-offset-3
+  = form_for @user do |f|
+    - if @user.errors.any?
+      %h2 Form is invalid
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+    - else
+      .field
+        = f.label :name
+        %br/
+        = f.text_field :name
+      .field
+        = f.label :email
+        %br/
+        = f.text_field :email
+      .field
+        = f.label :password
+        %br/
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation
+        %br/
+        .actions= f.submit "Sign Up"
 
-          .form-group
-          %input.form-control.input-sm{name:"email",placeholder: "Email Address", type: "email"}/
 
-          .form-group
-          %input.form-control.input-sm{name: "Password", placeholder: "Password", type: "password"}/
-
-          .form-group
-          %input.form-control.input-sm{name: "password_confirmation", placeholder: "Password Confirmation", type: "password_confirmation"}/
-
-          .form-group
-          %input.btn.btn-info.btn-block{:type => "submit", :value => "Register"}/
-
-
-        - if @user.errors.any?
-          %ul.Signup_Errors
-            - for message_error in @user.errors.full_messages
-              %li
-                * #{message_error}
 
 
 

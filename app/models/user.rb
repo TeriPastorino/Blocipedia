@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  before_create :confirmation_token
-  
   has_secure_password
+  before_create {generate_token(:auth_token) }
+  
+  
   validates_presence_of :email
   validates :password, length: {minimum: 8}, allow_blank: true
   before_create { generate_token(:auth_token) }
