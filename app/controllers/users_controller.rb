@@ -6,13 +6,15 @@ class UsersController < ApplicationController
 
   def confirm_email
     user = User.find_by(confirm_token: params[:id])
-    # If there is a user
+    if user
       # set the user's confirm token to nil
-      # set the user.email_confirmed to true
-      # redirect to the root url with a flash notice
-    # else
-      # set flash error
-      # redirect to the root url
+      user.email.activate      
+      flash[:success] = "Welcome to Blocipedia your email has been confirmed. Sign in to continue"
+      redirect_to root_url    
+    else
+      flash[:error] = "Sorry. User does not exist."
+      redirect_to root_url
+    end
   end
 
 
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       flash[:error] = 'An error has occured'
-      render :new
+      render :root_url
     end
   end
 
