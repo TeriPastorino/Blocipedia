@@ -7,9 +7,10 @@ class UserMailer < ApplicationMailer
   #
   def password_reset
     @user = user
-
     mail to: user.email, subject: "Password Reset"
   end
+
+  #starting setup for registration confirmation
 
   def registration_confirmation(user)
     @user = user
