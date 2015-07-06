@@ -10,23 +10,26 @@
 
           = form_for @user do |f| 
             - if @user.errors.any?
+            .alert.alert_danger
               %p "There was an error in your input, Try again"
               - for message_error in @user.errors.full_messages
                 %li
                   * #{message_error}
-            .form-group
+            .form-group_tag 
+              - user.errors?([:user][:name]) do
               = f.text_field :name, class: "form-control input-sm", placeholder: "Name" 
 
-            .form-group
+            .form-group_tag()
               = f.text_field :email, class: "form-control input-sm", placeholder: "Email Address" 
 
-            .form-group
+            .form-group_tag()
               = f.password_field :password, class: "form-control input-sm", placeholder: "Password" 
 
-            .form-group
+            .form-group_tag()
               = f.password_field :password_confirmation, class: "form-control input-sm", placeholder: "Password Confirmation" 
+            
             .form-group
-              %input.btn.btn-info.btn-block{:type => "submit", :value => "Register"}
+              = f.submit "Register", class: "btn btn-info.btn-block"
 
 
 

@@ -1,18 +1,18 @@
 %h1 Log in
-=form_tag sessions_path do
+= form_tag sessions_path do
   .well.well-large
     .field
-      =label_tag :email
+      = label_tag :email
       %br/
-      =text_field_tag :email, params[:email]
+      = text_field_tag :email, params[:email]
       %br/
     .field
-      =label_tag :password
+      = label_tag :password
       %br/
-      =password_field_tag :password
+      = password_field_tag :password
       %br/
-      =link_to "forgot password?", new_password_reset_path
+      = link_to "forgot password?", new_password_reset_path
     .field
-      =check_box_tag :remember_me, 1, params[:remember_me]
-      =label_tag :remember_me
-      =submit_tag "Log in"
+      = check_box_tag :remember_me, 1, params[:remember_me]
+      = label_tag :remember_me
+      = submit_tag "Log in", class: 'btn btn-sm btn-success'

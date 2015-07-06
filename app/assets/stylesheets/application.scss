@@ -21,6 +21,10 @@
   background: image-url('/public/img/light_grey.jpg');
 }
 */
+.jumbotron {
+  padding-left: 60px;
+  padding-right: 60px;
+}
 
 .centered-form .panel{
   background: rgba(255, 255, 255, 0.8);
@@ -30,4 +34,8 @@
 
 .centered-form{
   margin-top: 60px;
+}
+
+.nav-top-margin {
+  margin-top: 15px;
 }
