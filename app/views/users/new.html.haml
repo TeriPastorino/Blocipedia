@@ -10,13 +10,13 @@
 
           = form_for @user do |f| 
             - if @user.errors.any?
-            .alert.alert_danger
-              %p "There was an error in your input, Try again"
-              - for message_error in @user.errors.full_messages
-                %li
-                  * #{message_error}
+              .alert.alert_danger
+                %p "There was an error in your input, Try again"
+                - @user.errors.full_messages.each do |message_error|
+                  %li
+                    * #{message_error}
             .form-group_tag 
-              - user.errors?([:user][:name]) do
+              - user.errors?([:name]) do
               = f.text_field :name, class: "form-control input-sm", placeholder: "Name" 
 
             .form-group_tag()
