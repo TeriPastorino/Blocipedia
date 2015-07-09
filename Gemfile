@@ -38,4 +38,6 @@ group :development, :test do
   gem 'spring'
 end
 gem 'haml-rails', '~> 0.9.0'
+gem 'stripe'
+gem 'figaro', '~> 1.1.1'
 

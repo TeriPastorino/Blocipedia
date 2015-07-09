@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628231748) do
+ActiveRecord::Schema.define(version: 20150709182659) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150628231748) do
     t.datetime "password_reset_sent_at"
     t.boolean  "email_confirmed"
     t.string   "confirm_token"
+    t.string   "role"
+    t.string   "stripe_customer_id"
   end
 
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   resources :sessions
   resources :password_resets
+  resources :charges, only: [:new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

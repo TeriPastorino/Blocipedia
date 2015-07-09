@@ -1,0 +1,8 @@
+#Add configuration values here, as shown below.
+
+stripe_api_key: key
+stripe_publishable_key: key
+
+production:
+  stripe_api_key: key
+  stripe_publishable_key: key
