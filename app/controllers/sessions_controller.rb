@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     cookies.delete(:auth_token)    
-    redirect_to sign_in_path, notice: "Logged out"
+    redirect_to root_path, notice: "Logged out"
   end
 
 end
