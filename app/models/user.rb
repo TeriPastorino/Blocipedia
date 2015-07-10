@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :name
   validates :password, length: {minimum: 8}, allow_blank: true
   
+  has_many :wikis
+
   before_create {generate_token(:auth_token) }
   before_create { generate_token(:confirm_token) }
+
 
 
   def email_activate

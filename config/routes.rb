@@ -1,17 +1,4 @@
 Rails.application.routes.draw do
-  get 'wikis/index'
-
-  get 'wikis/new'
-
-  get 'wikis/show'
-
-  get 'wikis/edit'
-
-  get 'wikis/update'
-
-  get 'wikis/delete'
-
-  get 'password_resets/new'
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
