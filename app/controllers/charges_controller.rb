@@ -23,10 +23,10 @@ class ChargesController < ApplicationController
       description: "Premium Membership - #{current_user.email}",
       currency: 'usd'
     )
-    current_user.update_attributes(role: premium)
+    current_user.update_attributes(role: 'premium')
 
     flash[:success] = "Thank you, #{current_user.email}! Enjoy your Blocipedia Subscription."
-    redirect_to user_path(current_user) # or wherever
+    redirect_to root_path # or wherever
   
   # Stripe will send back CardErrors, with friendly messages
   # when something goes wrong.
