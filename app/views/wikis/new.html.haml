@@ -1,2 +1,21 @@
-%h1 Wikis#new
-%p Find me in app/views/wikis/new.html.haml
+.container.well.well.lg
+  .row
+    %h1 Guidelines for Wiki's
+    .row
+    %ul.h4
+      %li Check to see if the Topic already exists
+      %li Give the new Wiki an appropriate name
+      %li Cite your sources
+      %li Don't promote your business or service
+      
+
+
+.container
+  = form_for @wiki do |f|
+    = f.label :title
+    = f.text_field :title, class: 'form-control', placeholder: "Enter Wiki Title"
+    %p
+    = f.label :body
+    = f.text_area :body, class: 'form-control', placeholder: "Enter Wiki Description"
+
+    = f.submit "Save", class: 'btn btn-success'

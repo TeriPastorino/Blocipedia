@@ -1,2 +1,7 @@
-%h1 Wikis#show
-%p Find me in app/views/wikis/show.html.haml
+/ = @wiki.title
+/ = @wiki.body
+
+- @wikis.each do |wiki|
+  = wiki.title
+  = wiki.body
+
