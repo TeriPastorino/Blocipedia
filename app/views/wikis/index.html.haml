@@ -1,3 +1,17 @@
-%h1 Wikis#index
-%p Find me in app/views/wikis/index.html.haml
+.container
+  %h1 Wikis
+  .container
+    = link_to "New Wiki", new_wiki_path, class: 'btn btn-success'
 
+  .row
+  .container
+  - @wikis.each do |wiki|
+    .media.media-body.media-heading
+    .container
+      .panel.panel-primary
+        .panel-heading
+          .panel-title
+          =link_to wiki.title, wiki
+        .row
+        .container
+          = wiki.body

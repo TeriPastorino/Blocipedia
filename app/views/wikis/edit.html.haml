@@ -1,2 +1,13 @@
-%h1 Wikis#edit
-%p Find me in app/views/wikis/edit.html.haml
+%h1 Edit Wiki
+
+.container
+  = form_for @wiki do |f|
+    = f.label :title
+    = f.text_field :title, class: 'form-control', placeholder: "Enter Wiki Title"
+    %p
+    = f.label :body
+    = f.text_area :body, class: 'form-control', placeholder: "Enter Wiki Description"
+
+    = f.submit "Save", class: 'btn btn-success' 
+
+    = link_to "Delete Wiki", @wiki, method: :delete, class: 'btn.btn-danger', data: { confirm: 'Are you sure you want to delete this wiki? '}
