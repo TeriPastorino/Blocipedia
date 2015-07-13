@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   after_initialize :set_role
 
+  
+
   def admin?
     role == 'admin'
   end
