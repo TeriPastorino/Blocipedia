@@ -1,7 +1,8 @@
 .container
   %h1 Wikis
   .container
-    = link_to "New Wiki", new_wiki_path, class: 'btn btn-success'
+    - if policy(Wiki.new).create?
+      = link_to "New Wiki", new_wiki_path, class: 'btn btn-success'
 
   .row
   .container
@@ -11,7 +12,7 @@
       .panel.panel-primary
         .panel-heading
           .panel-title
-          =link_to wiki.title, wiki
+          = link_to wiki.title, wiki
         .row
         .container
           = wiki.body

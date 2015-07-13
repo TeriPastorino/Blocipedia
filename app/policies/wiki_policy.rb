@@ -5,9 +5,9 @@ class WikiPolicy < ApplicationPolicy
     end
 
     def destroy?
-      user.present? && (record.user == user || user.admin?)
+      #user.present? && (record.user == user || user.admin?)
     end
-    
+
     def resolve
       scope
     end
