@@ -1,7 +1,7 @@
 class WikisController < ApplicationController
   def index
     @wikis = Wiki.all
-    # authorize @wikis
+    authorize @wikis
   end
 
   def new
@@ -24,31 +24,32 @@ class WikisController < ApplicationController
 
   def show
     @wiki = Wiki.find(params[:id])
-    # authorize @wiki
+    authorize @wiki
   end
 
   def edit
     @wiki = Wiki.find(params[:id])
-    #@users = User.all
-    # authorize @wiki
+    @users = User.all
+    authorize @wiki
   end
 
   def update
     @wiki = Wiki.find(params[:id])
-    @wiki.update_attributes(wiki_params)
-    # authorize @wiki
-    if @wiki.save
-      flash[:notice] = "Your changes have been made."
+    authorize @wiki
+    if @wiki.update_attributes(wiki_params)
+      flash[:notice] = "Wiki was sucessfully updated."
       redirect_to @wiki
     else
-      flash[:error] = "Error saving wiki. Please try again."
+      flash[:error] = "There was an error saving the wiki. Please try again."
+      render :edit
     end
   end
 
 
   def destroy
     @wiki = Wiki.find(params[:id])
-    # authorize @wiki
+    # ?
+    authorize @wiki
     if @wiki.delete
       flash[:notice] = "\"#{@wiki.title}\" was deleted"
       redirect_to wikis_path

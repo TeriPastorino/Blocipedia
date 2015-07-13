@@ -9,8 +9,20 @@ class User < ActiveRecord::Base
   before_create {generate_token(:auth_token) }
   before_create { generate_token(:confirm_token) }
 
+  after_initialize :set_role
 
+  def admin?
+    role == 'admin'
+  end
 
+  def premium?
+    role = 'premium'
+  end
+
+  def set_role
+    self.role ||= 'standard'
+  end
+  
   def email_activate
     self.email_confirmed = true
     self.confirm_token = nil
