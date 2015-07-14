@@ -1,3 +1,5 @@
+
+
 / = @wiki.title
 / = @wiki.body
 
@@ -5,3 +7,13 @@
 /   = wiki.title
 /   = wiki.body
 
+%h1 Wikis
+
+- if policy(Wiki.new).create?
+  = link_to "New Wiki", new_wiki_path, class: 'btn btn-success'
+
+- @wikis.each do |wiki|
+  .media.media-body.media-heading
+     = link_to wiki.title, wiki
+     = wiki.body
+   
