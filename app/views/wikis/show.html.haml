@@ -1,23 +1,12 @@
+%h1 
+.media.media-body.media-heading
+  = @wiki.title
+%p 
+= @wiki.body
 
-
-/ = @wiki.title
-/ = @wiki.body
-
-/ - @wikis.each do |wiki|
-/   = wiki.title
-/   = wiki.body
-
-%h1 Wikis
 
 - if policy(@wiki).edit?
   = link_to "Edit Wiki", edit_wiki_path(@wiki), class: 'btn btn-success'
 
 - if policy(@wiki).destroy?
   = link_to "Delete Wiki", edit_wiki_path(@wiki), class: 'btn btn-danger'
-
-
-
-- @wikis.each do |wiki|
-  .media.media-body.media-heading
-    = link_to wiki.title, wiki
-    = wiki.body
