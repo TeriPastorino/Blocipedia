@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :wikis 
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
@@ -15,5 +16,4 @@ Rails.application.routes.draw do
   resources :password_resets
   resources :charges, only: [:new, :create]
 
-  resources :wikis
 end

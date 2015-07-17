@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
 
   after_initialize :set_role
 
-  
-
   def admin?
     role == 'admin'
   end
@@ -21,9 +19,6 @@ class User < ActiveRecord::Base
     role = 'premium'
   end
 
-  def set_role
-    self.role ||= 'standard'
-  end
   
   def email_activate
     self.email_confirmed = true
@@ -49,9 +44,15 @@ class User < ActiveRecord::Base
   end
 
   private
+
   def confirmation_token
     if self.confirm_token.blank?
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
+  end
+
+  #set default role to standard  
+  def set_role
+    self.role ||= 'standard'
   end
 end
