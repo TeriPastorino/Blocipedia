@@ -23,7 +23,8 @@ class ChargesController < ApplicationController
       description: "Premium Membership - #{current_user.email}",
       currency: 'usd'
     )
-    current_user.update_attributes(role: 'premium')
+    #update the current_users stripe_customer_id (customer.id in this context) as well...
+    current_user.update_attributes(role: 'premium', stripe_customer_id: customer.id)
 
     flash[:success] = "Thank you, #{current_user.email}! Enjoy your Blocipedia Subscription."
     redirect_to root_path # or wherever

@@ -41,4 +41,4 @@ gem 'haml-rails', '~> 0.9.0'
 gem 'stripe'
 gem 'figaro', '~> 1.1.1'
 gem 'pundit', '~> 1.0.1'
-
+gem 'faker', '~> 1.4.3'
