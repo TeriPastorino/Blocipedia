@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    true
+    false
   end
 
   def show?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    #user.present? && (record.user == user || user.admin)
+    false
   end
 
   def scope
