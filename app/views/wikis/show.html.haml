@@ -1,8 +1,8 @@
 %h1 
 .media.media-body.media-heading
-  = @wiki.title
+  = markdown_wiki @wiki.title
 %p 
-= @wiki.body
+= markdown_wiki @wiki.body
 
 .row
 - if policy(@wiki).edit?
