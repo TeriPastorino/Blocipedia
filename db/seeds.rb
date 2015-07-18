@@ -1,3 +1,4 @@
+
 #create Users
 5.times do
   user = User.new(
@@ -25,4 +26,5 @@ end
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Wiki.count} wikis created"
+
 

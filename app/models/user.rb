@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   end
 
   #railscast
+
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
@@ -44,15 +45,16 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def confirmation_token
     if self.confirm_token.blank?
       self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
 
+
   #set default role to standard  
   def set_role
     self.role ||= 'standard'
   end
+
 end

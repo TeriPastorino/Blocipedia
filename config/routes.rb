@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   resources :users do
+
     member do
       get :confirm_email
     end
