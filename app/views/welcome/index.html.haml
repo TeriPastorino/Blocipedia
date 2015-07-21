@@ -1,16 +1,15 @@
 .container
   %h1 Blocipedia Social Wiki
-  .jumbotron
-    .row
-      .col-xs-8.col-xs-offset-4
-      %h2 public and private Markdown-based wikis.
+.container
+  .row
+    .jumbotron.col-xs-6
+      %h2 Public wikis
       %p Find & Share the best places for food, stuff, things to see.....
-      %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more
-  / two side by side one private one public
-  .jumbotron
-    .row
-      .col-xs-6.col-xs-offset-4
-      %h2 public and private Markdown-based wikis.
-      %p Find & Share the best places for food, stuff, things to see.....
-      %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Free 
+      %a.btn.btn-primary.btn-lg{:href => "/wikis", :role => "button"} Standard
+    / two side by side one private one public
+
+  .jumbotron.col-xs-6
+    %h2 Private wikis
+    %p Find & Share the best places for food, stuff, things to see.....
+    %a.btn.btn-success.btn-lg{:href => "/charges/new", :role => "button"} Premium 
 

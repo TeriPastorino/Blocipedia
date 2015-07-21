@@ -19,6 +19,14 @@ class User < ActiveRecord::Base
     role = 'premium'
   end
 
+  def upgrade
+    self.update_attributes(:role => 'premium')
+  end
+
+  def downgrade
+    self.update_attributes(:role => 'standard')
+  end
+
   
   def email_activate
     self.email_confirmed = true
