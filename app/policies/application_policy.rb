@@ -7,11 +7,11 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    true
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    true
   end
 
   def create?
@@ -31,11 +31,11 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    user.present? && (record.user == user || user.admin?)
   end
 
   def scope
-   record.class
+    record.class
   end
 
   class Scope

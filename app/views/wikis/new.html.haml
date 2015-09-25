@@ -17,5 +17,10 @@
     %p
     = f.label :body
     = f.text_area :body, class: 'form-control', placeholder: "Enter Wiki Description"
+    -# if current_user.role == 'admin' || current.user.role == 'premium'
+      %br
+      =f.label :private
+      =f.check_box :private
 
-    = f.submit "Save", class: 'btn btn-success'
+    = f.submit "Save", class: 'btn btn-success' "Back"
+    = link_to "Back", wikis_path, class: 'btn btn-link'

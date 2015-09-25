@@ -1,43 +1,29 @@
 class WikiPolicy < ApplicationPolicy
-  class Scope < Scope
-    attr_reader :user, :scope
+  def new?
+    user.present?
+  end
 
-    def initializer(user, scope)
-      @user = user
-      @scope = scope
-    end
+  def update?
+    user.present?
+  end
 
-    def index?
-      user.present?
-    end
+  def destroy?
+    user.present? && (record.user == user || user.admin?)
+  end
 
-    def new?
-      user.present?
-    end
+  def create_private?
+    user.present? && (user.premium? || user.admin?)
+  end
 
-    def show?
-      user.present?
-    end
-
-    def edit?
-      update?
-    end
-
-    def update?
-      user.present? && (record.user == user) || (user.admin?)
-    end
-
-    def destroy?
-      user.present? && (record.user == user) || (user.admin?)
-    end
-
-    def resolve
-      if user.admin?
-        scope.all
-      else
-        scope.where(user: user)
+  def show?
+    if user.present?
+      if user.premium? || user.admin?
+        record.public? || record.user == user || record.users.include?(user)
+      elsif user.standard?
+        record.public? || record.users.include?(user)
       end
+    else
+      record.public?
     end
-
   end
 end
